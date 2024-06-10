@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-const PushToTalkButton = () => {
+const PushToTalkButton = ({ setAudioUrl }) => {
   const [isRecording, setIsRecording] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
@@ -21,8 +21,7 @@ const PushToTalkButton = () => {
     mediaRecorderRef.current.onstop = () => {
       const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
       const audioUrl = URL.createObjectURL(audioBlob);
-      const audio = new Audio(audioUrl);
-      audio.play();
+      setAudioUrl(audioUrl);
       audioChunksRef.current = [];
     };
   };

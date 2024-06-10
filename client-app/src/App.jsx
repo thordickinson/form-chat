@@ -28,7 +28,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR                                                                                                                                                                                                  
         </p>                                                                                                                                                                                                                                                  
       </div>                                                                                                                                                                                                                                                  
-      <PushToTalkButton />
+      <PushToTalkButton setAudioUrl={setAudioUrl} />
       <AudioPlayer audioUrl={audioUrl} />                                                                                                                                                                                                                                
       <p className="read-the-docs">                                                                                                                                                                                                                           
         Click on the Vite and React logos to learn more                                                                                                                                                                                                       
