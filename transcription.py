@@ -16,7 +16,7 @@ def transcribe_audio(audio_path, language="es"):
 def get_openai_response(transcription_text):
     openai.api_key = os.getenv("OPENAI_API_KEY")
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": transcription_text}
