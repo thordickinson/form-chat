@@ -8,6 +8,7 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, setIsRecording }) =>
 
   const handleMouseDown = async () => {
     setIsRecording(true);
+    setIsRecording(true);
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorderRef.current = new MediaRecorder(stream);
@@ -22,6 +23,7 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, setIsRecording }) =>
   };
 
   const handleMouseUp = () => {
+    setIsRecording(false);
     setIsRecording(false);
     mediaRecorderRef.current.stop();
     mediaRecorderRef.current.onstop = () => {
