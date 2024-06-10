@@ -38,15 +38,23 @@ def transcribe_audio_online(audio_path):
         f.write(transcription_text)
     return transcription_text, transcription_path
 
-def get_openai_response(transcription_text):
+def get_openai_response(transcription_text, form_data):
     client = OpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+    )
+
+    prompt = (
+        "You are a helpful assistant. Here is the transcription of an audio file:\n\n"
+        f"{transcription_text}\n\n"
+        "And here is the current state of a form:\n\n"
+        f"{form_data}\n\n"
+        "Please complete the form based on the transcription."
     )
 
     response = client.chat.completions.create(
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": transcription_text}
+            {"role": "user", "content": prompt}
         ],
         model="gpt-4",
         max_tokens=150

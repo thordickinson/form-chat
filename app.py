@@ -39,7 +39,7 @@ def upload_audio():
                                                                                                                                                                                                                                                             
     # Transcribe the audio using the transcription module                                                                                                                                                                                                     
     transcription_text, transcription_path = transcription.transcribe_audio(audio_path, language="es", use_online=USE_WHISPER_ONLINE)
-    response_text = transcription.get_openai_response(transcription_text)
+    response_text = transcription.get_openai_response(transcription_text, form_data)
 
     return jsonify({
         'uuid': audio_uuid,
