@@ -24,6 +24,7 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged
 
   const handleMouseUp = () => {
     setIsRecording(false);
+    onIsRecordingChanged(false);
     setIsRecording(false);
     mediaRecorderRef.current.stop();
     mediaRecorderRef.current.onstop = () => {
