@@ -22,12 +22,13 @@ def upload_audio():
     if 'audio' not in request.files:                                                                                                                                                                                                                          
         return jsonify({'error': 'No audio file provided'}), 400                                                                                                                                                                                              
                                                                                                                                                                                                                                                             
-    audio_file = request.files['audio']                                                                                                                                                                                                                       
-    audio_uuid = str(uuid.uuid4())                                                                                                                                                                                                                            
-    audio_path = os.path.join('uploads', f'{audio_uuid}.wav')                                                                                                                                                                                                 
-                                                                                                                                                                                                                                                            
-    os.makedirs('uploads', exist_ok=True)                                                                                                                                                                                                                     
-    audio_file.save(audio_path)                                                                                                                                                                                                                               
+    audio_file = request.files['audio']
+    audio_uuid = str(uuid.uuid4())
+    audio_folder = os.path.join('uploads', audio_uuid)
+    os.makedirs(audio_folder, exist_ok=True)
+    audio_path = os.path.join(audio_folder, 'audio.wav')
+
+    audio_file.save(audio_path)
                                                                                                                                                                                                                                                             
     return jsonify({'uuid': audio_uuid})                                                                                                                                                                                                                      
                                                                                                                                                                                                                                                             
