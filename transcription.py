@@ -15,9 +15,12 @@ def transcribe_audio(audio_path, language="es"):
 
 def get_openai_response(transcription_text):
     openai.api_key = os.getenv("OPENAI_API_KEY")
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=transcription_text,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": transcription_text}
+        ],
         max_tokens=150
     )
-    return response.choices[0].text.strip()
+    return response.choices[0].message['content'].strip()
