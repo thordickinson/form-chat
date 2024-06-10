@@ -5,7 +5,7 @@ import requests
 from openai import OpenAI
 
 # Load the model once
-model = whisper.load_model("base")
+model = whisper.load_model("small")
 
 def transcribe_audio(audio_path, language="es", use_online=False):
     if use_online:

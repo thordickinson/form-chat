@@ -10,9 +10,9 @@ const App = () => {
   const [response, setResponse] = useState('');
 
   const fields = [
-    { label: 'Name', name: 'name', type: 'text' },
-    { label: 'Age', name: 'age', type: 'number' },
-    { label: 'Bio', name: 'bio', type: 'textarea' },
+    { label: 'Nombre', name: 'name', type: 'text', description: "Name of the person" },
+    { label: 'Edad', name: 'age', type: 'number', description: "How old is the person?" },
+    { label: 'Historia Clínicia', name: 'bio', type: 'textarea', description: "All health related events" },
     // Add more fields as needed
   ];
 
