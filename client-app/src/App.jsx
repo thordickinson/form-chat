@@ -16,7 +16,7 @@ const App = () => {
     // Add more fields as needed
   ];
 
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState(fields.reduce((prev, curr) => ({...prev, [curr.name]: ''}), {}));
 
   const handleFormChange = (data) => {
     setFormData(data);
@@ -64,7 +64,7 @@ const App = () => {
       <AudioPlayer audioUrl={audioUrl} />
       <div className="conversation">
         {transcription && <div className="transcription">You: {transcription}</div>}
-        {response && <div className="response">AI: {response}</div>}
+        {response && <div className="response">AI: {JSON.stringify(response)}</div>}
       </div>
     </div>
     </>

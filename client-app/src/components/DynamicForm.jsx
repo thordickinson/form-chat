@@ -6,6 +6,7 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
   // Update formData with response data when response changes
   React.useEffect(() => {
     if (response) {
+      console.log(response);
       setFormData(prevFormData => ({
         ...prevFormData,
         ...response
@@ -71,7 +72,6 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
         </div>
       ))}
       <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Submit</button>
-      <button type="button" onClick={() => console.log(serializeFormData())} className="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700">Serialize Form Data</button>
     </form>
   );
 };

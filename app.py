@@ -29,7 +29,8 @@ def upload_audio():
     if 'audio' not in request.files or 'formData' not in request.form:                                                                                                                                                                                                                          
         return jsonify({'error': 'Audio file or form data not provided'}), 400                                                                                                                                                                                              
                                                                                                                                                                                                                                                             
-    audio_file = request.files['audio']                                                                                                                                                                                                                       
+    audio_file = request.files['audio']
+    print("Form data:", request.form['formData'])                                                                                                                                                                                                                       
     form_payload = json.loads(request.form['formData'])
     form_data = form_payload.get('formData', {})
     fields = form_payload.get('fields', [])

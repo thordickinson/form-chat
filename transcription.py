@@ -1,3 +1,4 @@
+import json
 import whisper
 import os
 import requests
@@ -57,6 +58,8 @@ def get_openai_response(transcription_text, form_data, fields):
         """
     )
 
+    print(prompt)
+
     response = client.chat.completions.create(
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
@@ -66,4 +69,9 @@ def get_openai_response(transcription_text, form_data, fields):
         model="gpt-4o",
         max_tokens=150
     )
-    return response.choices[0].message.content
+    content = response.choices[0].message.content
+    print(content)
+    # parse the content as json
+    content = json.loads(content)
+    print(content)
+    return content
