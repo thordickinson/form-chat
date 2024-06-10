@@ -46,3 +46,6 @@ body {
   border-radius: 5px;
   margin: 10px 0;
 }
+.App.recording {
+  background: linear-gradient(to right, #ff0000, #ff7f7f);
+}

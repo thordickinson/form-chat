@@ -9,7 +9,7 @@ import transcription
 app = Flask(__name__, static_folder='client/dist', static_url_path='/')                                                                                                                                                                                       
 
 # Configuration option to switch between offline and online transcription
-USE_WHISPER_ONLINE = os.getenv("USE_WHISPER_ONLINE", "false").lower() == "true"
+USE_WHISPER_ONLINE = True # os.getenv("USE_WHISPER_ONLINE", "false").lower() == "true"
                                                                                                                                                                                                                                                             
 @app.route('/api/')                                                                                                                                                                                                                                           
 def home():                                                                                                                                                                                                                                                   

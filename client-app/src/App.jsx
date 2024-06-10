@@ -6,6 +6,7 @@ import DynamicForm from './components/DynamicForm';
 
 const App = () => {
   const [audioUrl, setAudioUrl] = useState('');
+  const [isRecording, setIsRecording] = useState(false);
   const [transcription, setTranscription] = useState('');
   const [response, setResponse] = useState('');
 
@@ -56,12 +57,12 @@ const App = () => {
 
   return (
     <>
-    <div className="App">
+    <div className={`App ${isRecording ? 'recording' : ''}`}>
       <h1>Dynamic Form</h1>
       <DynamicForm fields={fields} onSubmit={handleFormSubmit} onChange={handleFormChange} response={response}/>
     </div>
     <div className="app-container">
-      <PushToTalkButton setAudioUrl={setAudioUrl} handleAudioUpload={handleAudioUpload}  />
+      <PushToTalkButton setAudioUrl={setAudioUrl} handleAudioUpload={handleAudioUpload} onIsRecordingChanged={setIsRecording} />
       <AudioPlayer audioUrl={audioUrl} />
       <div className="conversation">
         {transcription && <div className="transcription">You: {transcription}</div>}

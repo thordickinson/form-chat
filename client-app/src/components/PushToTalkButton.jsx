@@ -1,14 +1,14 @@
 import { useState, useRef } from 'react';
 import { FaMicrophone } from 'react-icons/fa';
 
-const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, setIsRecording }) => {
+const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged }) => {
   const [isRecording, setIsRecording] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
   const handleMouseDown = async () => {
     setIsRecording(true);
-    setIsRecording(true);
+    onIsRecordingChanged(true);
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorderRef.current = new MediaRecorder(stream);
