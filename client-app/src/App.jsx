@@ -47,6 +47,7 @@ const App = () => {
         console.log('UUID:', data.uuid);
         setTranscription(data.transcription);
         setResponse(data.response);
+        setFormData(data.response);
       })
       .catch(error => {
         console.error('Error uploading audio:', error);
