@@ -34,7 +34,7 @@ def upload_audio():
     audio_file.save(audio_path)                                                                                                                                                                                                                               
                                                                                                                                                                                                                                                             
     # Transcribe the audio using the transcription module                                                                                                                                                                                                     
-    transcription_text, transcription_path = transcription.transcribe_audio(audio_path, language="es")
+    transcription_text, transcription_path = transcription.transcribe_audio(audio_path, language="es", use_online=USE_WHISPER_ONLINE)
     response_text = transcription.get_openai_response(transcription_text)
 
     return jsonify({
