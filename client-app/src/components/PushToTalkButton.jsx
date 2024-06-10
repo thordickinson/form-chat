@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { FaMicrophone } from 'react-icons/fa';
 
-const PushToTalkButton = ({ setAudioUrl, setTranscription, setResponse }) => {
+const PushToTalkButton = ({ setAudioUrl, setTranscription, setResponse, formData }) => {
   const [isRecording, setIsRecording] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
