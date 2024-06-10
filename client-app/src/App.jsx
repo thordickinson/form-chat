@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import PushToTalkButton from './components/PushToTalkButton';
 import AudioPlayer from './components/AudioPlayer';
+import DynamicForm from './components/DynamicForm';
 
 const App = () => {
   const [audioUrl, setAudioUrl] = useState('');
