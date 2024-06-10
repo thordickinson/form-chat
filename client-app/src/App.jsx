@@ -30,9 +30,10 @@ const App = () => {
   const handleAudioUpload = (audioBlob) => {
     const formDataToSend = new FormData();
     formDataToSend.append('audio', audioBlob);
+    const fieldsNoLabel = fields.map(field => ({ name: field.name, type: field.type }));
     const formPayload = {
       formData,
-      fields
+      fields: fieldsNoLabel
     };
     const serializedFormData = JSON.stringify(formPayload);
     formDataToSend.append('formData', serializedFormData);
