@@ -44,7 +44,7 @@ def get_openai_response(transcription_text, form_data):
     )
 
     prompt = (
-        "You are a helpful assistant. Here is the transcription of an audio file:\n\n"
+        "Here is the transcription of an audio file:\n\n"
         f"{transcription_text}\n\n"
         "And here is the current state of a form:\n\n"
         f"{form_data}\n\n"
