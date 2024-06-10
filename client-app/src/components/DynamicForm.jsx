@@ -5,10 +5,12 @@ const DynamicForm = ({ fields, onSubmit, onChange }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
+    const updatedFormData = {
       ...formData,
       [name]: value,
-    });
+    };
+    setFormData(updatedFormData);
+    onChange(updatedFormData);
   };
 
   const handleSubmit = (e) => {
