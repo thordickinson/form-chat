@@ -21,6 +21,7 @@ const App = () => {
   };
 
   return (
+    <>
     <div className="App">
       <h1>Dynamic Form</h1>
       <DynamicForm fields={fields} onSubmit={handleSubmit} />
@@ -33,6 +34,7 @@ const App = () => {
         {response && <div className="response">AI: {response}</div>}
       </div>
     </div>
+    </>
   );
 };
 
