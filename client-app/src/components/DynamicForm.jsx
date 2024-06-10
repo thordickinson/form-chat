@@ -17,7 +17,11 @@ const DynamicForm = ({ fields, onSubmit }) => {
   };
 
   const serializeFormData = () => {
-    return JSON.stringify(formData);
+    const completeFormData = {};
+    fields.forEach(field => {
+      completeFormData[field.name] = formData[field.name] || '';
+    });
+    return JSON.stringify(completeFormData);
   };
   
   return (
