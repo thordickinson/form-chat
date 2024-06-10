@@ -1,2 +1,2 @@
 Flask==2.3.2
-openai-whisper==2022.12.1
+openai-whisper==2023.10.1
