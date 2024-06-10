@@ -1,17 +1,20 @@
 from flask import Flask, send_from_directory
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='build', static_url_path='/')
 
 @app.route('/')
 def home():
     return "Hello, Flask!"
 
-@app.route('/<path:path>', methods=['GET'])
-def serve_react_app(path):
-    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
-    app.static_folder = 'build'
+@app.route('/<path:path>')
+def static_proxy(path):
+    # send_static_file will guess the correct MIME type
+    return app.send_static_file(path)
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+if __name__ == "__main__":
     app.run(debug=True)
