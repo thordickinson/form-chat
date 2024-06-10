@@ -57,7 +57,7 @@ const App = () => {
     <>
     <div className="App">
       <h1>Dynamic Form</h1>
-      <DynamicForm fields={fields} onSubmit={handleFormSubmit} onChange={handleFormChange}/>
+      <DynamicForm fields={fields} onSubmit={handleFormSubmit} onChange={handleFormChange} response={response}/>
     </div>
     <div className="app-container">
       <PushToTalkButton setAudioUrl={setAudioUrl} handleAudioUpload={handleAudioUpload}  />

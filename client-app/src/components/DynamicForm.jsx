@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 
-const DynamicForm = ({ fields, onSubmit, onChange }) => {
+const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
   const [formData, setFormData] = useState({});
+
+  // Update formData with response data when response changes
+  React.useEffect(() => {
+    if (response) {
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        ...response
+      }));
+    }
+  }, [response]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
