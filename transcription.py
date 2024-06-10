@@ -1,5 +1,6 @@
 import whisper
 import os
+import requests
 from openai import OpenAI
 
 # Load the model once
@@ -20,9 +21,17 @@ def transcribe_audio_offline(audio_path, language="es"):
     return transcription_text, transcription_path
 
 def transcribe_audio_online(audio_path):
-    # Implement the logic for online transcription using Whisper API
-    # This is a placeholder implementation
-    transcription_text = "Online transcription not implemented"
+    url = "https://api.openai.com/v1/audio/transcriptions"
+    headers = {
+        "Authorization": f"Bearer {os.environ.get('OPENAI_API_KEY')}",
+    }
+    files = {
+        "file": open(audio_path, "rb"),
+        "model": "whisper-1",
+    }
+    response = requests.post(url, headers=headers, files=files)
+    response_data = response.json()
+    transcription_text = response_data.get("text", "Transcription failed")
     transcription_path = os.path.join(os.path.dirname(audio_path), 'transcription.txt')
     with open(transcription_path, 'w') as f:
         f.write(transcription_text)
@@ -42,3 +51,4 @@ def get_openai_response(transcription_text):
         max_tokens=150
     )
     return response.choices[0].message.content
+    files["file"].close()
