@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { FaMicrophone } from 'react-icons/fa';
 
-const PushToTalkButton = ({ setAudioUrl }) => {
+const PushToTalkButton = ({ setAudioUrl, setTranscription, setResponse }) => {
   const [isRecording, setIsRecording] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
@@ -38,6 +38,8 @@ const PushToTalkButton = ({ setAudioUrl }) => {
         .then(data => {
           console.log('UUID:', data.uuid);
           setAudioUrl(audioUrl);
+          setTranscription(data.transcription);
+          setResponse(data.response);
         })
         .catch(error => {
           console.error('Error uploading audio:', error);
