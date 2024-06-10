@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import PushToTalkButton from './components/PushToTalkButton';
 import AudioPlayer from './components/AudioPlayer';
@@ -54,6 +54,14 @@ const App = () => {
         console.error('Error uploading audio:', error);
       });
   };
+
+  useEffect(() => {
+    if (isRecording) {
+      document.body.classList.add('recording');
+    } else {
+      document.body.classList.remove('recording');
+    }
+  }, [isRecording]);
 
   return (
     <>

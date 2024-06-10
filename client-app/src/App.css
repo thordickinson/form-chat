@@ -8,6 +8,11 @@ body {
   align-items: center;
   height: 100vh;
   color: white;
+  transition: background 0.3s;
+}
+
+body.recording {
+  background: linear-gradient(to right, #ff0000, #ff7f7f);
 }
 
 #root {
