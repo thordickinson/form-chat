@@ -7,12 +7,17 @@ const PushToTalkButton = ({ setAudioUrl }) => {
 
   const handleMouseDown = async () => {
     setIsRecording(true);
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    mediaRecorderRef.current = new MediaRecorder(stream);
-    mediaRecorderRef.current.ondataavailable = (event) => {
-      audioChunksRef.current.push(event.data);
-    };
-    mediaRecorderRef.current.start();
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorderRef.current = new MediaRecorder(stream);
+      mediaRecorderRef.current.ondataavailable = (event) => {
+        audioChunksRef.current.push(event.data);
+      };
+      mediaRecorderRef.current.start();
+    } catch (err) {
+      console.error("Error accessing microphone:", err);
+      setIsRecording(false);
+    }
   };
 
   const handleMouseUp = () => {
