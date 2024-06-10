@@ -1,6 +1,6 @@
 import whisper
 import os
-import openai
+from openai import OpenAI
 
 # Load the model once
 model = whisper.load_model("base")
