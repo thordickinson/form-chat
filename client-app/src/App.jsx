@@ -30,7 +30,11 @@ const App = () => {
   const handleAudioUpload = (audioBlob) => {
     const formDataToSend = new FormData();
     formDataToSend.append('audio', audioBlob);
-    const serializedFormData = JSON.stringify(formData);
+    const formPayload = {
+      formData,
+      fields
+    };
+    const serializedFormData = JSON.stringify(formPayload);
     formDataToSend.append('formData', serializedFormData);
 
     fetch('/api/upload', {

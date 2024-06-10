@@ -29,7 +29,9 @@ def upload_audio():
         return jsonify({'error': 'Audio file or form data not provided'}), 400                                                                                                                                                                                              
                                                                                                                                                                                                                                                             
     audio_file = request.files['audio']                                                                                                                                                                                                                       
-    form_data = request.form['formData']                                                                                                                                                                                                                       
+    form_payload = request.form['formData']
+    form_data = form_payload.get('formData', {})
+    fields = form_payload.get('fields', [])
     audio_uuid = str(uuid.uuid4())                                                                                                                                                                                                                            
     audio_folder = os.path.join('uploads', audio_uuid)                                                                                                                                                                                                        
     os.makedirs(audio_folder, exist_ok=True)                                                                                                                                                                                                                  
@@ -39,7 +41,7 @@ def upload_audio():
                                                                                                                                                                                                                                                             
     # Transcribe the audio using the transcription module                                                                                                                                                                                                     
     transcription_text, transcription_path = transcription.transcribe_audio(audio_path, language="es", use_online=USE_WHISPER_ONLINE)
-    response_text = transcription.get_openai_response(transcription_text, form_data)
+    response_text = transcription.get_openai_response(transcription_text, form_data, fields)
 
     return jsonify({
         'uuid': audio_uuid,

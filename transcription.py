@@ -38,7 +38,7 @@ def transcribe_audio_online(audio_path):
         f.write(transcription_text)
     return transcription_text, transcription_path
 
-def get_openai_response(transcription_text, form_data):
+def get_openai_response(transcription_text, form_data, fields):
     client = OpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
     )
@@ -48,7 +48,9 @@ def get_openai_response(transcription_text, form_data):
         f"{transcription_text}\n\n"
         "And here is the current state of a form:\n\n"
         f"{form_data}\n\n"
-        """Please complete the form based on the transcription. 
+        "And here is the field metadata:\n\n"
+        f"{fields}\n\n"
+        """Please complete the form based on the transcription and the field metadata. 
         Do not explain the response, return your response as a JSON object,
         use the very same fields as the form data, do not add or remove fields. 
         Do not modify the form data if the transcription does not contains the field.
