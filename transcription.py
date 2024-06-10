@@ -26,4 +26,4 @@ def get_openai_response(transcription_text):
         model="gpt-4",
         max_tokens=150
     )
-    return response.choices[0].message['content'].strip()
+    return response.choices[0].message.content
