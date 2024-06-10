@@ -34,9 +34,14 @@ def upload_audio():
     audio_file.save(audio_path)                                                                                                                                                                                                                               
                                                                                                                                                                                                                                                             
     # Transcribe the audio using the transcription module                                                                                                                                                                                                     
-    transcription.transcribe_audio(audio_path, language="es")                                                                                                                                                                                                 
-                                                                                                                                                                                                                                                            
-    return jsonify({'uuid': audio_uuid})                                                                                                                                                                                                                      
+    transcription_text, transcription_path = transcription.transcribe_audio(audio_path, language="es")
+    response_text = transcription.get_openai_response(transcription_text)
+
+    return jsonify({
+        'uuid': audio_uuid,
+        'transcription': transcription_text,
+        'response': response_text
+    })
                                                                                                                                                                                                                                                             
 if __name__ == "__main__":                                                                                                                                                                                                                                    
     app.run(debug=True) 
