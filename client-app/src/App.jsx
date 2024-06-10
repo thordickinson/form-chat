@@ -20,14 +20,21 @@ const App = () => {
     console.log('Form Data:', formData);
   };
 
+  const [formData, setFormData] = useState({});
+
+  const handleFormSubmit = (data) => {
+    setFormData(data);
+    console.log('Form Data:', data);
+  };
+
   return (
     <>
     <div className="App">
       <h1>Dynamic Form</h1>
-      <DynamicForm fields={fields} onSubmit={handleSubmit} />
+      <DynamicForm fields={fields} onSubmit={handleFormSubmit} />
     </div>
     <div className="app-container">
-      <PushToTalkButton setAudioUrl={setAudioUrl} setTranscription={setTranscription} setResponse={setResponse} />
+      <PushToTalkButton setAudioUrl={setAudioUrl} setTranscription={setTranscription} setResponse={setResponse} formData={formData} />
       <AudioPlayer audioUrl={audioUrl} />
       <div className="conversation">
         {transcription && <div className="transcription">You: {transcription}</div>}

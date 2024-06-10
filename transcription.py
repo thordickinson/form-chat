@@ -48,7 +48,11 @@ def get_openai_response(transcription_text, form_data):
         f"{transcription_text}\n\n"
         "And here is the current state of a form:\n\n"
         f"{form_data}\n\n"
-        "Please complete the form based on the transcription."
+        """Please complete the form based on the transcription. 
+        Do not explain the response, return your response as a JSON object,
+        use the very same fields as the form data, do not add or remove fields. 
+        Do not modify the form data if the transcription does not contains the field.
+        """
     )
 
     response = client.chat.completions.create(
@@ -56,7 +60,8 @@ def get_openai_response(transcription_text, form_data):
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt}
         ],
-        model="gpt-4",
+        response_format={ "type": "json_object" },
+        model="gpt-4o",
         max_tokens=150
     )
     return response.choices[0].message.content
