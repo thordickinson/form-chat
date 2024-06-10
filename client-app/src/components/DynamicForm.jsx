@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const DynamicForm = ({ fields, onSubmit }) => {
+const DynamicForm = ({ fields, onSubmit, onChange }) => {
   const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {

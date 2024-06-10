@@ -55,7 +55,7 @@ const App = () => {
       <DynamicForm fields={fields} onSubmit={handleFormSubmit} />
     </div>
     <div className="app-container">
-      <PushToTalkButton setAudioUrl={setAudioUrl} handleAudioUpload={handleAudioUpload} />
+      <PushToTalkButton setAudioUrl={setAudioUrl} handleAudioUpload={handleAudioUpload} onChange={handleFormChange} />
       <AudioPlayer audioUrl={audioUrl} />
       <div className="conversation">
         {transcription && <div className="transcription">You: {transcription}</div>}
