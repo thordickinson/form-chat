@@ -27,12 +27,13 @@ const PushToTalkButton = ({ setAudioUrl, setTranscription, setResponse, formData
     mediaRecorderRef.current.onstop = () => {
       const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
       const audioUrl = URL.createObjectURL(audioBlob);
-      const formData = new FormData();
-      formData.append('audio', audioBlob);
+      const formDataToSend = new FormData();
+      formDataToSend.append('audio', audioBlob);
+      formDataToSend.append('formData', JSON.stringify(formData));
 
       fetch('/api/upload', {
         method: 'POST',
-        body: formData,
+        body: formDataToSend,
       })
         .then(response => response.json())
         .then(data => {
