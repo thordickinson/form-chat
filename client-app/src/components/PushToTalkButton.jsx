@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { FaMicrophone } from 'react-icons/fa';
 
 const PushToTalkButton = ({ setAudioUrl }) => {
   const [isRecording, setIsRecording] = useState(false);
@@ -49,9 +50,9 @@ const PushToTalkButton = ({ setAudioUrl }) => {
     <button
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      className={`p-4 rounded-full ${isRecording ? 'bg-red-500' : 'bg-green-500'}`}
+      className={`push-to-talk-button ${isRecording ? 'recording' : ''}`}
     >
-      {isRecording ? 'Recording...' : 'Push to Talk'}
+      <FaMicrophone />
     </button>
   );
 };
