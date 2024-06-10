@@ -18,6 +18,10 @@ const App = () => {
 
   const [formData, setFormData] = useState({});
 
+  const handleFormChange = (data) => {
+    setFormData(data);
+  };
+
   const handleFormSubmit = (data) => {
     setFormData(data);
     console.log('Form Data:', data);
