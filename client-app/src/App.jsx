@@ -16,10 +16,6 @@ const App = () => {
     // Add more fields as needed
   ];
 
-  const handleSubmit = (formData) => {
-    console.log('Form Data:', formData);
-  };
-
   const [formData, setFormData] = useState({});
 
   const handleFormSubmit = (data) => {
@@ -55,7 +51,7 @@ const App = () => {
       <DynamicForm fields={fields} onSubmit={handleFormSubmit} />
     </div>
     <div className="app-container">
-      <PushToTalkButton setAudioUrl={setAudioUrl} setTranscription={setTranscription} setResponse={setResponse} formData={formData} />
+      <PushToTalkButton setAudioUrl={setAudioUrl} handleAudioUpload={handleAudioUpload} />
       <AudioPlayer audioUrl={audioUrl} />
       <div className="conversation">
         {transcription && <div className="transcription">You: {transcription}</div>}
