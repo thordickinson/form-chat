@@ -25,10 +25,11 @@ def index():
                                                                                                                                                                                                                                                             
 @app.route('/api/upload', methods=['POST'])                                                                                                                                                                                                                   
 def upload_audio():                                                                                                                                                                                                                                           
-    if 'audio' not in request.files:                                                                                                                                                                                                                          
-        return jsonify({'error': 'No audio file provided'}), 400                                                                                                                                                                                              
+    if 'audio' not in request.files or 'formData' not in request.form:                                                                                                                                                                                                                          
+        return jsonify({'error': 'Audio file or form data not provided'}), 400                                                                                                                                                                                              
                                                                                                                                                                                                                                                             
     audio_file = request.files['audio']                                                                                                                                                                                                                       
+    form_data = request.form['formData']                                                                                                                                                                                                                       
     audio_uuid = str(uuid.uuid4())                                                                                                                                                                                                                            
     audio_folder = os.path.join('uploads', audio_uuid)                                                                                                                                                                                                        
     os.makedirs(audio_folder, exist_ok=True)                                                                                                                                                                                                                  
@@ -43,7 +44,8 @@ def upload_audio():
     return jsonify({
         'uuid': audio_uuid,
         'transcription': transcription_text,
-        'response': response_text
+        'response': response_text,
+        'formData': form_data
     })
                                                                                                                                                                                                                                                             
 if __name__ == "__main__":                                                                                                                                                                                                                                    
