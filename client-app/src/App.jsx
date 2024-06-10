@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg';
 import './App.css';                                                                                                                                                                                                                                           
 import PushToTalkButton from './components/PushToTalkButton';                                                                                                                                                                                                 
 import AudioPlayer from './components/AudioPlayer';                                                                                                                                                                                                 
+import Hello from './components/Hello';
                                                                                                                                                                                                                                                               
 function App() {                                                                                                                                                                                                                                              
   const [count, setCount] = useState(0);                                                                                                                                                                                                                      
@@ -27,6 +28,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR                                                                                                                                                                                                  
         </p>                                                                                                                                                                                                                                                  
       </div>                                                                                                                                                                                                                                                  
+      <Hello />
       <PushToTalkButton />
       <AudioPlayer />                                                                                                                                                                                                                                
       <p className="read-the-docs">                                                                                                                                                                                                                           
