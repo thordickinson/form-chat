@@ -40,6 +40,8 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged
     <button
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      onTouchStart={handleMouseDown}
+      onTouchEnd={handleMouseUp}
       className={`push-to-talk-button ${isRecording ? 'recording' : ''}`}
     >
       <FaMicrophone />
