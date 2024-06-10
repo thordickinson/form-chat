@@ -52,10 +52,10 @@ const App = () => {
     <>
     <div className="App">
       <h1>Dynamic Form</h1>
-      <DynamicForm fields={fields} onSubmit={handleFormSubmit} />
+      <DynamicForm fields={fields} onSubmit={handleFormSubmit} onChange={handleFormChange}/>
     </div>
     <div className="app-container">
-      <PushToTalkButton setAudioUrl={setAudioUrl} handleAudioUpload={handleAudioUpload} onChange={handleFormChange} />
+      <PushToTalkButton setAudioUrl={setAudioUrl} handleAudioUpload={handleAudioUpload}  />
       <AudioPlayer audioUrl={audioUrl} />
       <div className="conversation">
         {transcription && <div className="transcription">You: {transcription}</div>}
