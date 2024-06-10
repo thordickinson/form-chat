@@ -27,6 +27,27 @@ const App = () => {
     console.log('Form Data:', data);
   };
 
+  const handleAudioUpload = (audioBlob) => {
+    const formDataToSend = new FormData();
+    formDataToSend.append('audio', audioBlob);
+    const serializedFormData = JSON.stringify(formData);
+    formDataToSend.append('formData', serializedFormData);
+
+    fetch('/api/upload', {
+      method: 'POST',
+      body: formDataToSend,
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('UUID:', data.uuid);
+        setTranscription(data.transcription);
+        setResponse(data.response);
+      })
+      .catch(error => {
+        console.error('Error uploading audio:', error);
+      });
+  };
+
   return (
     <>
     <div className="App">
