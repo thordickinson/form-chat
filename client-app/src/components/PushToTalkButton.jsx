@@ -26,7 +26,21 @@ const PushToTalkButton = ({ setAudioUrl }) => {
     mediaRecorderRef.current.onstop = () => {
       const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
       const audioUrl = URL.createObjectURL(audioBlob);
-      setAudioUrl(audioUrl);
+      const formData = new FormData();
+      formData.append('audio', audioBlob);
+
+      fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('UUID:', data.uuid);
+          setAudioUrl(audioUrl);
+        })
+        .catch(error => {
+          console.error('Error uploading audio:', error);
+        });
       audioChunksRef.current = [];
     };
   };
