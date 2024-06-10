@@ -3,12 +3,27 @@ import './App.css';
 import PushToTalkButton from './components/PushToTalkButton';
 import AudioPlayer from './components/AudioPlayer';
 
-function App() {
+const App = () => {
   const [audioUrl, setAudioUrl] = useState('');
   const [transcription, setTranscription] = useState('');
   const [response, setResponse] = useState('');
 
+  const fields = [
+    { label: 'Name', name: 'name', type: 'text' },
+    { label: 'Age', name: 'age', type: 'number' },
+    { label: 'Bio', name: 'bio', type: 'textarea' },
+    // Add more fields as needed
+  ];
+
+  const handleSubmit = (formData) => {
+    console.log('Form Data:', formData);
+  };
+
   return (
+    <div className="App">
+      <h1>Dynamic Form</h1>
+      <DynamicForm fields={fields} onSubmit={handleSubmit} />
+    </div>
     <div className="app-container">
       <PushToTalkButton setAudioUrl={setAudioUrl} setTranscription={setTranscription} setResponse={setResponse} />
       <AudioPlayer audioUrl={audioUrl} />
@@ -18,6 +33,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
