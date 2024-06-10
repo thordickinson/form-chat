@@ -29,7 +29,8 @@ const PushToTalkButton = ({ setAudioUrl, setTranscription, setResponse, formData
       const audioUrl = URL.createObjectURL(audioBlob);
       const formDataToSend = new FormData();
       formDataToSend.append('audio', audioBlob);
-      formDataToSend.append('formData', JSON.stringify(formData));
+      const serializedFormData = JSON.stringify(formData);
+      formDataToSend.append('formData', serializedFormData);
 
       fetch('/api/upload', {
         method: 'POST',
