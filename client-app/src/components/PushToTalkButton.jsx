@@ -36,7 +36,7 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged
     };
   };
 
-  return (
+  return (<div className='ptt-button-container'>
     <button
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
@@ -46,6 +46,8 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged
     >
       <FaMicrophone />
     </button>
+    <div>Presiona para hablar</div>
+    </div>
   );
 };
 

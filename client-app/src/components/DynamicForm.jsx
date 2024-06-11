@@ -29,16 +29,9 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
     onSubmit(formData);
   };
 
-  const serializeFormData = () => {
-    const completeFormData = {};
-    fields.forEach(field => {
-      completeFormData[field.name] = formData[field.name] || '';
-    });
-    return JSON.stringify(completeFormData);
-  };
   
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto p-4 bg-white shadow-md rounded text-gray-800">
+    <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto p-4 bg-white shadow-md rounded text-gray-800 m-2">
       {fields.map((field, index) => (
         <div key={index} className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">{field.label}</label>
