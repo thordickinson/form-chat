@@ -15,19 +15,19 @@ const App = () => {
       label: "Nombre",
       name: "name",
       type: "text",
-      description: "Name of the person",
+      description: "Nombre de la persona",
     },
     {
       label: "Edad",
       name: "age",
       type: "number",
-      description: "How old is the person?",
+      description: "¿Cuál es la edad de la persona?",
     },
     {
       label: "Historia Clínicia",
       name: "bio",
       type: "textarea",
-      description: "All health related events",
+      description: "Eventos médicos del paciente",
     },
     // Add more fields as needed
   ];
