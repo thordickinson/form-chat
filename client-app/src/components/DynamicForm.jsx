@@ -38,6 +38,7 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
           {field.type === 'text' && (
             <input
               type="text"
+              placeholder={field.description}
               name={field.name}
               value={formData[field.name] || ''}
               onChange={handleChange}
@@ -48,6 +49,7 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
             <input
               type="number"
               name={field.name}
+              placeholder={field.description}
               value={formData[field.name] || ''}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded"
@@ -56,6 +58,7 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
           {field.type === 'textarea' && (
             <textarea
               name={field.name}
+              placeholder={field.description}
               value={formData[field.name] || ''}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded"

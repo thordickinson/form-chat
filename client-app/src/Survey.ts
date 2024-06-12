@@ -1,0 +1,172 @@
+const preguntasMedicas = [
+    {
+      label: "Nombre",
+      name: "name",
+      type: "text",
+      description: "Nombre de la persona",
+    },
+    {
+      label: "Edad",
+      name: "age",
+      type: "number",
+      description: "Edad de la persona",
+    },
+    {
+      label: "Género",
+      name: "gender",
+      type: "text",
+      description: "Género de la persona",
+    },
+    {
+      label: "Antecedentes familiares de enfermedades: Diabetes",
+      name: "family_history_diabetes",
+      type: "boolean",
+      description: "Antecedentes familiares de diabetes",
+    },
+    {
+      label: "Antecedentes familiares de enfermedades: Hipertensión",
+      name: "family_history_hypertension",
+      type: "boolean",
+      description: "Antecedentes familiares de hipertensión",
+    },
+    {
+      label: "¿Cuál es el motivo de su visita hoy?",
+      name: "visit_reason",
+      type: "text",
+      description: "Motivo de la visita de hoy",
+    },
+    {
+      label: "¿Cuánto tiempo ha estado experimentando estos síntomas?",
+      name: "symptoms_duration",
+      type: "text",
+      description: "Duración de los síntomas",
+    },
+    {
+      label: "¿Puede describir sus síntomas?",
+      name: "symptoms_description",
+      type: "text",
+      description: "Descripción de los síntomas",
+    },
+    {
+      label: "¿Cuándo comenzaron los síntomas?",
+      name: "symptoms_start",
+      type: "date",
+      description: "Fecha de inicio de los síntomas",
+    },
+    {
+      label: "¿Los síntomas son constantes o intermitentes?",
+      name: "symptoms_frequency",
+      type: "text",
+      description: "Frecuencia de los síntomas",
+    },
+    {
+      label: "¿Hay algo que mejore o empeore los síntomas?",
+      name: "symptoms_triggers",
+      type: "text",
+      description: "Factores que mejoran o empeoran los síntomas",
+    },
+    {
+      label: "¿Ha tenido alguna enfermedad reciente?",
+      name: "recent_illness",
+      type: "text",
+      description: "Enfermedades recientes",
+    },
+    {
+      label: "¿Ha tenido contacto con alguien enfermo?",
+      name: "contact_sick_person",
+      type: "boolean",
+      description: "Contacto con personas enfermas",
+    },
+    {
+      label: "¿Ha viajado recientemente?",
+      name: "recent_travel",
+      type: "text",
+      description: "Viajes recientes",
+    },
+    {
+      label: "¿Está tomando algún medicamento actualmente? (nombre, dosis, frecuencia)",
+      name: "current_medications",
+      type: "text",
+      description: "Medicamentos actuales (nombre, dosis, frecuencia)",
+    },
+    {
+      label: "¿Usa algún suplemento o medicina alternativa?",
+      name: "supplements",
+      type: "text",
+      description: "Uso de suplementos o medicina alternativa",
+    },
+    {
+      label: "¿Es alérgico a algún medicamento?",
+      name: "medication_allergies",
+      type: "text",
+      description: "Alergias a medicamentos",
+    },
+    {
+      label: "¿Fuma o consume alcohol? ¿Con qué frecuencia?",
+      name: "smoking_alcohol",
+      type: "text",
+      description: "Consumo de tabaco o alcohol y frecuencia",
+    },
+    {
+      label: "¿Realiza alguna actividad física regularmente?",
+      name: "physical_activity",
+      type: "text",
+      description: "Actividad física regular",
+    },
+    {
+      label: "¿Cómo describiría su dieta diaria?",
+      name: "daily_diet",
+      type: "text",
+      description: "Descripción de la dieta diaria",
+    },
+    {
+      label: "Respiratorio: ¿Tiene tos o dificultad para respirar?",
+      name: "respiratory_symptoms",
+      type: "text",
+      description: "Síntomas respiratorios (tos o dificultad para respirar)",
+    },
+    {
+      label: "Cardiovascular: ¿Siente dolor en el pecho?",
+      name: "cardiovascular_symptoms",
+      type: "text",
+      description: "Síntomas cardiovasculares (dolor en el pecho)",
+    },
+    {
+      label: "Digestivo: ¿Tiene náuseas, vómitos o cambios en el hábito intestinal?",
+      name: "digestive_symptoms",
+      type: "text",
+      description: "Síntomas digestivos (náuseas, vómitos, cambios en el hábito intestinal)",
+    },
+    {
+      label: "¿Cómo se ha sentido emocionalmente últimamente?",
+      name: "emotional_state",
+      type: "text",
+      description: "Estado emocional reciente",
+    },
+    {
+      label: "¿Ha experimentado estrés, ansiedad o depresión?",
+      name: "mental_health",
+      type: "text",
+      description: "Experiencia de estrés, ansiedad o depresión",
+    },
+    {
+      label: "¿Está al día con sus vacunas?",
+      name: "vaccination_status",
+      type: "boolean",
+      description: "Estado de vacunación actualizado",
+    },
+    {
+      label: "¿Realiza chequeos preventivos regularmente? (mamografías, colonoscopias, etc.)",
+      name: "preventive_checks",
+      type: "boolean",
+      description: "Chequeos preventivos regulares (mamografías, colonoscopias, etc.)",
+    },
+    {
+      label: "¿Hay algo más que le preocupe o que desee discutir hoy?",
+      name: "other_concerns",
+      type: "text",
+      description: "Otras preocupaciones o temas a discutir hoy",
+    }
+  ];
+
+  
