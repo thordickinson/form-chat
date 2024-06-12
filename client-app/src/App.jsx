@@ -24,6 +24,12 @@ const App = () => {
       description: "¿Cuál es la edad de la persona?",
     },
     {
+      label: "Casado",
+      name: "married",
+      type: "boolean",
+      description: "Está casado el paciente",
+    },
+    {
       label: "Historia Clínicia",
       name: "bio",
       type: "textarea",
