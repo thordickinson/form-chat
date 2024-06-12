@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 
 const AudioPlayer = ({ audioUrl }) => {
@@ -13,6 +13,21 @@ const AudioPlayer = ({ audioUrl }) => {
     }
     setIsPlaying(!isPlaying);
   };
+
+  useEffect(() => {
+    const audioElement = audioRef.current;
+    const handleEnded = () => setIsPlaying(false);
+
+    if (audioElement) {
+      audioElement.addEventListener("ended", handleEnded);
+    }
+
+    return () => {
+      if (audioElement) {
+        audioElement.removeEventListener("ended", handleEnded);
+      }
+    };
+  }, []);
 
   return (
     <div className="audio-player-container">
