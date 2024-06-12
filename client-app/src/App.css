@@ -138,3 +138,7 @@ body {
 .audio-player-button:focus {
   outline: none;
 }
+.checkbox-lg {
+  width: 20px;
+  height: 20px;
+}

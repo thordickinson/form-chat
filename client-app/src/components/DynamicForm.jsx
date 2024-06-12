@@ -71,7 +71,7 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
               name={field.name}
               checked={Boolean(formData[field.name]) || false}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border rounded checkbox-lg"
             />
           )}
           {/* Add more input types as needed */}
