@@ -104,10 +104,10 @@ const App = () => {
           <AudioPlayer audioUrl={audioUrl} />
           <div className="conversation">
             {transcription && (
-              <div className="transcription">You: {transcription}</div>
+              <div className="chat-bubble user-bubble">You: {transcription}</div>
             )}
             {response && (
-              <div className="response">AI: {JSON.stringify(response)}</div>
+              <div className="chat-bubble ai-bubble">AI: {JSON.stringify(response)}</div>
             )}
           </div>
         </div>

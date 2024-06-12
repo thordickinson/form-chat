@@ -61,3 +61,48 @@ body {
 .App.recording {
   background: linear-gradient(135deg, #c35353, #c03434);
 }
+.chat-bubble {
+  max-width: 60%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  position: relative;
+}
+
+.user-bubble {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+}
+
+.ai-bubble {
+  background-color: #f8d7da;
+  align-self: flex-start;
+}
+
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.user-bubble::after {
+  border-left: 10px solid #d1e7dd;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  right: -10px;
+  top: 10px;
+}
+
+.ai-bubble::after {
+  border-right: 10px solid #f8d7da;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: -10px;
+  top: 10px;
+}
+
+.conversation {
+  display: flex;
+  flex-direction: column;
+}
