@@ -109,3 +109,32 @@ body {
   display: flex;
   flex-direction: column;
 }
+.audio-player-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.audio-player-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.audio-player-button:hover {
+  background-color: #45a049;
+}
+
+.audio-player-button:focus {
+  outline: none;
+}
