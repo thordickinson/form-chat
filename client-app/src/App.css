@@ -14,11 +14,14 @@ body {
   text-align: center;
 }
 
-.ptt-button-container {
+.conversation-container {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.ptt-button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,12 +73,12 @@ body {
 }
 
 .user-bubble {
-  background-color: #d1e7dd;
+  background-color: #4caf50;
   align-self: flex-end;
 }
 
 .ai-bubble {
-  background-color: #f8d7da;
+  background-color: #c03434;
   align-self: flex-start;
 }
 
@@ -87,7 +90,7 @@ body {
 }
 
 .user-bubble::after {
-  border-left: 10px solid #d1e7dd;
+  border-left: 10px solid #4caf50;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   right: -10px;
@@ -95,7 +98,7 @@ body {
 }
 
 .ai-bubble::after {
-  border-right: 10px solid #f8d7da;
+  border-right: 10px solid #c03434;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   left: -10px;

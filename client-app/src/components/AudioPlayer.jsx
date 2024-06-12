@@ -1,6 +1,6 @@
 const AudioPlayer = ({ audioUrl }) => {
   return (
-    <div>
+    <div className="w-full flex-row">
       {audioUrl && (
         <audio controls>
           <source src={audioUrl} type="audio/wav" />
