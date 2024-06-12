@@ -15,10 +15,11 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
   }, [response]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, type, value, checked } = e.target;
+    const updatedValue = type === "checkbox" ? checked : value;
     const updatedFormData = {
       ...formData,
-      [name]: value,
+      [name]: updatedValue,
     };
     setFormData(updatedFormData);
     onChange(updatedFormData);
@@ -60,6 +61,15 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
               name={field.name}
               placeholder={field.description}
               value={formData[field.name] || ''}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded"
+            />
+          )}
+          {field.type === 'boolean' && (
+            <input
+              type="checkbox"
+              name={field.name}
+              checked={formData[field.name] || false}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded"
             />
