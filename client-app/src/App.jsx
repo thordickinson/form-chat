@@ -95,13 +95,7 @@ const App = () => {
           onChange={handleFormChange}
           response={response}
         />
-        <div className="app-container">
-          <PushToTalkButton
-            setAudioUrl={setAudioUrl}
-            handleAudioUpload={handleAudioUpload}
-            onIsRecordingChanged={setIsRecording}
-          />
-          <AudioPlayer audioUrl={audioUrl} />
+        <div className="conversation-container w-full p-8">
           <div className="conversation">
             {transcription && (
               <div className="chat-bubble user-bubble">You: {transcription}</div>
@@ -110,6 +104,12 @@ const App = () => {
               <div className="chat-bubble ai-bubble">AI: {JSON.stringify(response)}</div>
             )}
           </div>
+          <AudioPlayer audioUrl={audioUrl} />
+          <PushToTalkButton
+            setAudioUrl={setAudioUrl}
+            handleAudioUpload={handleAudioUpload}
+            onIsRecordingChanged={setIsRecording}
+          />
         </div>
       </div>
     </>
