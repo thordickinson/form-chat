@@ -8,20 +8,7 @@ import transcription
 app = Flask(__name__, static_folder='client/dist', static_url_path='/')                                                                                                                                                                                       
 
 # Configuration option to switch between offline and online transcription
-USE_WHISPER_ONLINE = True # os.getenv("USE_WHISPER_ONLINE", "false").lower() == "true"
-                                                                                                                                                                                                                                                            
-@app.route('/api/')                                                                                                                                                                                                                                           
-def home():                                                                                                                                                                                                                                                   
-    return "Hello, Flask!"                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                            
-@app.route('/api/<path:path>')                                                                                                                                                                                                                                
-def static_proxy(path):                                                                                                                                                                                                                                       
-    # send_static_file will guess the correct MIME type                                                                                                                                                                                                       
-    return app.send_static_file(path)                                                                                                                                                                                                                         
-                                                                                                                                                                                                                                                            
-@app.route('/')                                                                                                                                                                                                                                           
-def index():                                                                                                                                                                                                                                                  
-    return send_from_directory('client/dist', 'index.html')                                                                                                                                                                                                   
+USE_WHISPER_ONLINE = True # os.getenv("USE_WHISPER_ONLINE", "false").lower() == "true"                                                                                                                                                                                                                                                                                                                                                                                                                           
                                                                                                                                                                                                                                                             
 @app.route('/api/upload', methods=['POST'])                                                                                                                                                                                                                   
 def upload_audio():                                                                                                                                                                                                                                           
@@ -50,6 +37,15 @@ def upload_audio():
         'response': response_text,
         'formData': form_data
     })
-                                                                                                                                                                                                                                                            
-if __name__ == "__main__":                                                                                                                                                                                                                                    
+
+@app.route('/')                                                                                                                                                                                                                                           
+def index():                                                                                                                                                                                                                                                  
+    return send_from_directory('client-app/dist', 'index.html') 
+
+@app.route('/assets/<path:path>')                                                                                                                                                                                                                                
+def static_proxy(path):                                                                                                                                                                                                                                       
+    print(path)                                                                                                                                                                                                       
+    return send_from_directory("client-app/dist/assets", path)
+
+if __name__ == "__main__":                                                                                                                                                                                                                              
     app.run(debug=True) 
