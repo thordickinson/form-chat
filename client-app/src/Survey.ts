@@ -1,4 +1,4 @@
-const preguntasMedicas = [
+export const preguntasMedicas = [
     {
       label: "Nombre",
       name: "name",

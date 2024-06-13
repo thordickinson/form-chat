@@ -46,7 +46,6 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged
     >
       <FaMicrophone />
     </button>
-    <div>Presiona para hablar</div>
     </div>
   );
 };

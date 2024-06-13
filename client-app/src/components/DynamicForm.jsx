@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
   const [formData, setFormData] = useState({});
+  const [initialFormData, setInitialFormData] = useState({});
 
   // Update formData with response data when response changes
   React.useEffect(() => {
@@ -11,6 +12,7 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
         ...prevFormData,
         ...response
       }));
+      setInitialFormData(response);
     }
   }, [response]);
 

@@ -37,11 +37,16 @@ const AudioPlayer = ({ audioUrl }) => {
             <source src={audioUrl} type="audio/wav" />
             Your browser does not support the audio element.
           </audio>
-          <button className="audio-player-button" onClick={togglePlayPause}>
+          <button className="alt-button audio-player-button" onClick={togglePlayPause}>
             {isPlaying ? <FaPause /> : <FaPlay />}
           </button>
         </>
       )}
+      { !audioUrl && 
+        <button className="alt-button audio-player-button disabled">
+             <FaPlay />
+          </button>
+      }
     </div>
   );
 };
