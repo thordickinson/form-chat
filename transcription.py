@@ -43,13 +43,22 @@ def get_openai_response(transcription_text, form_data, fields):
     )
 
     prompt = (
-        "Here is the transcription of an audio file:\n\n"
-        f"{transcription_text}\n\n"
-        "And here is the current state of a form:\n\n"
-        f"{form_data}\n\n"
-        "And here is the field metadata:\n\n"
-        f"{fields}\n\n"
-        """Please complete the form based on the transcription and the field metadata. 
+        f"""
+        Here is the transcription of an audio file:
+        
+        "{transcription_text}"
+
+        And here is the current state of a form:
+        ```json
+        {form_data}
+        ```
+
+        And here is the field metadata:
+        ```json
+        {fields}
+        ```
+
+        Please extract only the fields that are present in the transcription. 
         Do not explain the response, return your response as a JSON object,
         use the very same fields as the form data, do not add or remove fields. 
         Do not modify the form data if the transcription does not contains the field.
@@ -64,12 +73,10 @@ def get_openai_response(transcription_text, form_data, fields):
             {"role": "user", "content": prompt}
         ],
         response_format={ "type": "json_object" },
-        model="gpt-4o",
-        max_tokens=150
+        model="gpt-4o"
     )
     content = response.choices[0].message.content
-    print(content)
+    print("Response from LLM", content)
     # parse the content as json
     content = json.loads(content)
-    print(content)
     return content

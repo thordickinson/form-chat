@@ -53,6 +53,8 @@ const App = () => {
 
   const revert = () => {
     setFormData(oldData);
+    setResponse(oldData);
+    setOldData(undefined);
   };
 
   const handleFormSubmit = (data) => {
@@ -116,12 +118,9 @@ const App = () => {
             {transcription && (
               <div className="chat-bubble user-bubble">You: {transcription}</div>
             )}
-            {response && (
-              <div className="chat-bubble ai-bubble">AI: {JSON.stringify(response)}</div>
-            )}
           </div>
           <div className="flex flex-row items-center justify-center gap-3">
-            <RevertButton onRevert={revert} canRevert={oldData} />
+            <RevertButton onRevert={revert} canRevert={oldData != null} />
             <PushToTalkButton
               setAudioUrl={setAudioUrl}
               handleAudioUpload={handleAudioUpload}
