@@ -6,7 +6,7 @@ import mkcert from 'vite-plugin-mkcert'
 export default defineConfig({
   plugins: [react(), mkcert()],
   server: {
-    https: true,
+    https: false,
     host: '0.0.0.0',
     proxy: {
       '/api': 'http://localhost:4000'
