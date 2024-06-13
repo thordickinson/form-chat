@@ -16,9 +16,10 @@ body {
 
 .conversation-container {
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 .ptt-button-container {
@@ -59,6 +60,7 @@ body {
 .App {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   transition: background 0.8s;
+  padding-bottom: 200px;
 }
 
 .App.recording {
@@ -109,6 +111,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .audio-player-container {
   display: flex;
   justify-content: center;
