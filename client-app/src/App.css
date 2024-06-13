@@ -145,3 +145,10 @@ body {
   width: 20px;
   height: 20px;
 }
+
+button {
+  border-radius: 50%;
+}
+  width: 20px;
+  height: 20px;
+}
