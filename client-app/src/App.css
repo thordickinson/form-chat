@@ -1,3 +1,6 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
 body {
   margin: 0;
   padding: 0;
@@ -9,147 +12,19 @@ body {
   color: white;
 }
 
-
-#root {
-  text-align: center;
-}
-
-.conversation-container {
-  position: fixed;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.75);
-}
-
-.ptt-button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.push-to-talk-button {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  color: white;
-  background-color: #4caf50;
-  transition: background-color 0.3s;
-}
-
-.push-to-talk-button.recording {
-  background-color: #f44336;
-}
-
-.conversation {
-  margin-top: 20px;
-  text-align: left;
-}
-
-.transcription, .response {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0;
-}
-
 .App {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  transition: background 0.8s;
-  padding-bottom: 200px;
+  transition: background 1s;
+  transition-delay: 500ms;
 }
 
 .App.recording {
-  background: linear-gradient(135deg, #c35353, #c03434);
-}
-.chat-bubble {
-  max-width: 60%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
-  position: relative;
-}
-
-.user-bubble {
-  background-color: #4caf50;
-  align-self: flex-end;
-}
-
-.ai-bubble {
-  background-color: #c03434;
-  align-self: flex-start;
-}
-
-.chat-bubble::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-
-.user-bubble::after {
-  border-left: 10px solid #4caf50;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  right: -10px;
-  top: 10px;
-}
-
-.ai-bubble::after {
-  border-right: 10px solid #c03434;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  left: -10px;
-  top: 10px;
-}
-
-.conversation {
-  display: flex;
-  flex-direction: column;
-}
-
-.audio-player-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.alt-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #4caf50;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.alt-button:hover {
-  background-color: #45a049;
-}
-
-.alt-button:focus {
-  outline: none;
-}
-
-.alt-button.disabled, .alt-button.disabled:hover  {
-  background-color: #b7b7b7;
-  cursor: default;
+  background: linear-gradient(135deg, #c35353 0%, #c03434 100%);
 }
 
 
-.checkbox-lg {
-  width: 20px;
-  height: 20px;
+#root {
+  text-align: center;
 }
 
 button {

@@ -1,3 +1,4 @@
 Flask==2.3.2
-openai-whisper
+# Whisper requires a lot of memory
+# openai-whisper
 openai

@@ -1,0 +1,177 @@
+.conversation-container {
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.recording-indicator {
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-top: -200px;
+    height: 200px;
+    transition: margin-top 0.3s;
+    transition-delay: 500ms;
+}
+
+.recording-indicator.recording {
+    margin-top: 0px;
+}
+
+.filler {
+    flex: 1 1 auto;
+}
+
+.buttons-panel {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+}
+
+.ptt-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.push-to-talk-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+  background-color: #4caf50;
+  transition: background-color 0.3s;
+}
+
+.push-to-talk-button.recording {
+  background-color: #f44336;
+}
+
+.conversation {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.transcription, .response {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+
+.conversation-container.recording {
+  background: linear-gradient(135deg, #c35353, #c03434);
+}
+
+
+.chat-bubble {
+  max-width: 60%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  position: relative;
+}
+
+.user-bubble {
+  background-color: #4caf50;
+  align-self: flex-end;
+}
+
+.ai-bubble {
+  background-color: #c03434;
+  align-self: flex-start;
+}
+
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.user-bubble::after {
+  border-left: 10px solid #4caf50;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  right: -10px;
+  top: 10px;
+}
+
+.ai-bubble::after {
+  border-right: 10px solid #c03434;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: -10px;
+  top: 10px;
+}
+
+.conversation {
+  display: flex;
+  flex-direction: column;
+}
+
+.audio-player-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alt-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.alt-button:hover {
+  background-color: #45a049;
+}
+
+.alt-button:focus {
+  outline: none;
+}
+
+.alt-button.disabled, .alt-button.disabled:hover  {
+  background-color: #b7b7b7;
+  cursor: default;
+}
+
+
+
+.recording-circle {
+    background-color: red;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    animation: ease pulse 2s infinite;
+    margin-right: 0.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: red;
+    }
+    50% {
+      background-color: #f06c6c;
+    }
+    100% {
+      background-color: red;
+    }
+  }
+  
