@@ -1,15 +1,16 @@
 import json
 import whisper
 import os
-import requests
 from openai import OpenAI
 client = OpenAI()
 
-# Load the model once
-model = whisper.load_model("small")
+USE_WHISPER_ONLINE = True # os.getenv("USE_WHISPER_ONLINE", "false").lower() == "true" 
 
-def transcribe_audio(audio_path, language="es", use_online=False):
-    if use_online:
+# Load the model once
+model = whisper.load_model("small") if USE_WHISPER_ONLINE else None
+
+def transcribe_audio(audio_path, language="es"):
+    if USE_WHISPER_ONLINE:
         return transcribe_audio_online(audio_path)
     else:
         return transcribe_audio_offline(audio_path, language)

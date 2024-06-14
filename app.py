@@ -8,7 +8,7 @@ import transcription
 app = Flask(__name__, static_folder='client/dist', static_url_path='/')                                                                                                                                                                                       
 
 # Configuration option to switch between offline and online transcription
-USE_WHISPER_ONLINE = True # os.getenv("USE_WHISPER_ONLINE", "false").lower() == "true"                                                                                                                                                                                                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                                                                                                          
                                                                                                                                                                                                                                                             
 @app.route('/api/upload', methods=['POST'])                                                                                                                                                                                                                   
 def upload_audio():                                                                                                                                                                                                                                           
@@ -28,7 +28,7 @@ def upload_audio():
     audio_file.save(audio_path)                                                                                                                                                                                                                               
                                                                                                                                                                                                                                                             
     # Transcribe the audio using the transcription module                                                                                                                                                                                                     
-    transcription_text, transcription_path = transcription.transcribe_audio(audio_path, language="es", use_online=USE_WHISPER_ONLINE)
+    transcription_text, transcription_path = transcription.transcribe_audio(audio_path, language="es")
     response_text = transcription.get_openai_response(transcription_text, form_data, fields)
 
     return jsonify({
