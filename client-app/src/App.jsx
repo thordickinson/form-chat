@@ -104,7 +104,7 @@ const App = () => {
   return (
     <>
       <div
-        className={`${isRecording ? "recording" : ""} w-full App`}
+        className={` w-full App`}
       >
         <h1>Historia Clinica</h1>
         <DynamicForm
@@ -113,7 +113,7 @@ const App = () => {
           onChange={handleFormChange}
           response={response}
         />
-        <div className="conversation-container w-full p-8">
+        <div className={`conversation-container w-full p-8 ${isRecording ? "recording" : ""}`} >
           <div className="conversation">
             {transcription && (
               <div className="chat-bubble user-bubble">You: {transcription}</div>
