@@ -1,31 +1,28 @@
-.conversation-container {
-  position: fixed;
-  bottom: 0px;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 .recording-indicator {
-    background-color: rgba(0, 0, 0, 0.4);
-    margin-top: -200px;
-    height: 200px;
-    transition: margin-top 0.3s;
-    transition-delay: 500ms;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 200px;
+  position: absolute;
+  top: -200px;
+  z-index: 1;
+  transition: top 0.3s;
+  width: 100%;
+  transition-delay: 500ms;
 }
 
 .recording-indicator.recording {
-    margin-top: 0px;
+  top: 0px;
 }
 
 .filler {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .buttons-panel {
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .ptt-button-container {
@@ -56,18 +53,17 @@
   text-align: left;
 }
 
-.transcription, .response {
+.transcription,
+.response {
   background: rgba(255, 255, 255, 0.1);
   padding: 10px;
   border-radius: 5px;
   margin: 10px 0;
 }
 
-
 .conversation-container.recording {
   background: linear-gradient(135deg, #c35353, #c03434);
 }
-
 
 .chat-bubble {
   max-width: 60%;
@@ -144,34 +140,32 @@
   outline: none;
 }
 
-.alt-button.disabled, .alt-button.disabled:hover  {
+.alt-button.disabled,
+.alt-button.disabled:hover {
   background-color: #b7b7b7;
   cursor: default;
 }
 
-
-
 .recording-circle {
+  background-color: red;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  animation: ease pulse 2s infinite;
+  margin-right: 0.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulse {
+  0% {
     background-color: red;
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
-    animation: ease pulse 2s infinite;
-    margin-right: 0.25em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
-  
-  @keyframes pulse {
-    0% {
-      background-color: red;
-    }
-    50% {
-      background-color: #f06c6c;
-    }
-    100% {
-      background-color: red;
-    }
+  50% {
+    background-color: #f06c6c;
   }
-  
+  100% {
+    background-color: red;
+  }
+}

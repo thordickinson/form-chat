@@ -7,3 +7,6 @@
     height: 20px;
 }
   
+.p-stepper.p-stepper-vertical .p-stepper-toggleable-content {
+    background-color: transparent;
+}

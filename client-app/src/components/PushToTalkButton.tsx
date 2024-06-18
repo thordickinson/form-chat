@@ -1,9 +1,17 @@
+import React from 'react';
 import { useState, useRef } from 'react';
 import { FaMicrophone } from 'react-icons/fa';
 
-const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged }) => {
+
+interface PushToTalkButtonProps {
+  setAudioUrl: (audioUrl: string) => void;
+  handleAudioUpload: (audioBlob: Blob) => void;
+  onIsRecordingChanged: (isRecording: boolean) => void;
+} 
+
+export function PushToTalkButton ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged }: PushToTalkButtonProps ) {
   const [isRecording, setIsRecording] = useState(false);
-  const mediaRecorderRef = useRef(null);
+  const mediaRecorderRef = useRef<MediaRecorder | undefined>(undefined);
   const audioChunksRef = useRef([]);
 
   const handleMouseDown = async () => {
@@ -13,7 +21,7 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorderRef.current = new MediaRecorder(stream);
       mediaRecorderRef.current.ondataavailable = (event) => {
-        audioChunksRef.current.push(event.data);
+        audioChunksRef.current.push(event.data as never);
       };
       mediaRecorderRef.current.start();
     } catch (err) {
@@ -26,6 +34,7 @@ const PushToTalkButton = ({ setAudioUrl, handleAudioUpload, onIsRecordingChanged
     setIsRecording(false);
     onIsRecordingChanged(false);
     setIsRecording(false);
+    if(!mediaRecorderRef.current) return;
     mediaRecorderRef.current.stop();
     mediaRecorderRef.current.onstop = () => {
       const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });

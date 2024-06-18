@@ -1,172 +1,185 @@
-export const preguntasMedicas = [
-    {
-      label: "Nombre",
-      name: "name",
-      type: "text",
-      description: "Nombre de la persona",
-    },
-    {
-      label: "Edad",
-      name: "age",
-      type: "number",
-      description: "Edad de la persona",
-    },
-    {
-      label: "Género",
-      name: "gender",
-      type: "text",
-      description: "Género de la persona",
-    },
-    {
-      label: "Antecedentes familiares de enfermedades: Diabetes",
-      name: "family_history_diabetes",
-      type: "boolean",
-      description: "Antecedentes familiares de diabetes",
-    },
-    {
-      label: "Antecedentes familiares de enfermedades: Hipertensión",
-      name: "family_history_hypertension",
-      type: "boolean",
-      description: "Antecedentes familiares de hipertensión",
-    },
-    {
-      label: "¿Cuál es el motivo de su visita hoy?",
-      name: "visit_reason",
-      type: "text",
-      description: "Motivo de la visita de hoy",
-    },
-    {
-      label: "¿Cuánto tiempo ha estado experimentando estos síntomas?",
-      name: "symptoms_duration",
-      type: "text",
-      description: "Duración de los síntomas",
-    },
-    {
-      label: "¿Puede describir sus síntomas?",
-      name: "symptoms_description",
-      type: "text",
-      description: "Descripción de los síntomas",
-    },
-    {
-      label: "¿Cuándo comenzaron los síntomas?",
-      name: "symptoms_start",
-      type: "date",
-      description: "Fecha de inicio de los síntomas",
-    },
-    {
-      label: "¿Los síntomas son constantes o intermitentes?",
-      name: "symptoms_frequency",
-      type: "text",
-      description: "Frecuencia de los síntomas",
-    },
-    {
-      label: "¿Hay algo que mejore o empeore los síntomas?",
-      name: "symptoms_triggers",
-      type: "text",
-      description: "Factores que mejoran o empeoran los síntomas",
-    },
-    {
-      label: "¿Ha tenido alguna enfermedad reciente?",
-      name: "recent_illness",
-      type: "text",
-      description: "Enfermedades recientes",
-    },
-    {
-      label: "¿Ha tenido contacto con alguien enfermo?",
-      name: "contact_sick_person",
-      type: "boolean",
-      description: "Contacto con personas enfermas",
-    },
-    {
-      label: "¿Ha viajado recientemente?",
-      name: "recent_travel",
-      type: "text",
-      description: "Viajes recientes",
-    },
-    {
-      label: "¿Está tomando algún medicamento actualmente? (nombre, dosis, frecuencia)",
-      name: "current_medications",
-      type: "text",
-      description: "Medicamentos actuales (nombre, dosis, frecuencia)",
-    },
-    {
-      label: "¿Usa algún suplemento o medicina alternativa?",
-      name: "supplements",
-      type: "text",
-      description: "Uso de suplementos o medicina alternativa",
-    },
-    {
-      label: "¿Es alérgico a algún medicamento?",
-      name: "medication_allergies",
-      type: "text",
-      description: "Alergias a medicamentos",
-    },
-    {
-      label: "¿Fuma o consume alcohol? ¿Con qué frecuencia?",
-      name: "smoking_alcohol",
-      type: "text",
-      description: "Consumo de tabaco o alcohol y frecuencia",
-    },
-    {
-      label: "¿Realiza alguna actividad física regularmente?",
-      name: "physical_activity",
-      type: "text",
-      description: "Actividad física regular",
-    },
-    {
-      label: "¿Cómo describiría su dieta diaria?",
-      name: "daily_diet",
-      type: "text",
-      description: "Descripción de la dieta diaria",
-    },
-    {
-      label: "Respiratorio: ¿Tiene tos o dificultad para respirar?",
-      name: "respiratory_symptoms",
-      type: "text",
-      description: "Síntomas respiratorios (tos o dificultad para respirar)",
-    },
-    {
-      label: "Cardiovascular: ¿Siente dolor en el pecho?",
-      name: "cardiovascular_symptoms",
-      type: "text",
-      description: "Síntomas cardiovasculares (dolor en el pecho)",
-    },
-    {
-      label: "Digestivo: ¿Tiene náuseas, vómitos o cambios en el hábito intestinal?",
-      name: "digestive_symptoms",
-      type: "text",
-      description: "Síntomas digestivos (náuseas, vómitos, cambios en el hábito intestinal)",
-    },
-    {
-      label: "¿Cómo se ha sentido emocionalmente últimamente?",
-      name: "emotional_state",
-      type: "text",
-      description: "Estado emocional reciente",
-    },
-    {
-      label: "¿Ha experimentado estrés, ansiedad o depresión?",
-      name: "mental_health",
-      type: "text",
-      description: "Experiencia de estrés, ansiedad o depresión",
-    },
-    {
-      label: "¿Está al día con sus vacunas?",
-      name: "vaccination_status",
-      type: "boolean",
-      description: "Estado de vacunación actualizado",
-    },
-    {
-      label: "¿Realiza chequeos preventivos regularmente? (mamografías, colonoscopias, etc.)",
-      name: "preventive_checks",
-      type: "boolean",
-      description: "Chequeos preventivos regulares (mamografías, colonoscopias, etc.)",
-    },
-    {
-      label: "¿Hay algo más que le preocupe o que desee discutir hoy?",
-      name: "other_concerns",
-      type: "text",
-      description: "Otras preocupaciones o temas a discutir hoy",
-    }
-  ];
+import { Form } from "./form/api";
 
-  
+export const FormularioConsulta: Form = {
+  "system": "Formulario de Consulta Médica",
+  "groups": [
+    {
+      "name": "Datos Personales y Antecedentes",
+      "description": "Sección para capturar datos personales y antecedentes.",
+      "system": "datos_personales_y_antecedentes",
+      "fields": [
+        {
+          "label": "Nombre",
+          "name": "nombre",
+          "type": "text",
+          "system": "datos_personales_y_antecedentes",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: María Pérez"
+        },
+        {
+          "label": "Edad",
+          "name": "edad",
+          "type": "number",
+          "system": "datos_personales_y_antecedentes",
+          "placeholder": "Ingrese su edad",
+          "hint": "Ejemplo: 45 años"
+        },
+        {
+          "label": "Género",
+          "name": "genero",
+          "type": "text",
+          "system": "datos_personales_y_antecedentes",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Femenino"
+        }
+      ]
+    },
+    {
+      name: "Antecedentes Familiares",
+      description: "Sección para capturar antecedentes familiares.",
+      system: "antecedentes_familiares",
+      fields: [
+        {
+          "label": "¿Alguno de sus familiares han sufrido de diabetes?",
+          "name": "antecedentesFamiliaresDiabetes",
+          "type": "boolean",
+          "system": "datos_personales_y_antecedentes",
+          "placeholder": "Seleccione una opción",
+          "hint": "Ejemplo: Sí"
+        },
+        {
+          "label": "¿Alguno de sus familiares ha sido diagnosticado con hipertensión?",
+          "name": "antecedentesFamiliaresHipertension",
+          "type": "boolean",
+          "system": "datos_personales_y_antecedentes",
+          "placeholder": "Seleccione una opción",
+          "hint": "Ejemplo: Sí"
+        }
+      ]
+    },
+    {
+      "name": "Estilo de Vida y Hábitos",
+      "description": "Sección para capturar estilo de vida y hábitos.",
+      "system": "estilo_de_vida_y_habitos",
+      "fields": [
+        {
+          "label": "¿Fuma o consume alcohol? ¿Con qué frecuencia?",
+          "name": "fumaConsumeAlcoholFrecuencia",
+          "type": "text",
+          "system": "estilo_de_vida_y_habitos",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: No fuma, consume alcohol ocasionalmente"
+        },
+        {
+          "label": "¿Realiza alguna actividad física regularmente?",
+          "name": "actividadFisicaRegular",
+          "type": "text",
+          "system": "estilo_de_vida_y_habitos",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Sí, camina 30 minutos diarios"
+        },
+        {
+          "label": "¿Cómo describiría su dieta diaria?",
+          "name": "dietaDiaria",
+          "type": "text",
+          "system": "estilo_de_vida_y_habitos",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Balanceada, rica en frutas y verduras"
+        }
+      ]
+    },
+    {
+      "name": "Revisión de Sistemas",
+      "description": "Sección para capturar la revisión de sistemas.",
+      "system": "revision_de_sistemas",
+      "fields": [
+        {
+          "label": "Neurológico: ¿Ha tenido dolores de cabeza o mareos?",
+          "name": "neurologicoDoloresCabezaMareos",
+          "type": "text",
+          "system": "revision_de_sistemas",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: No"
+        },
+        {
+          "label": "Cardiovascular: ¿Siente dolor en el pecho?",
+          "name": "cardiovascularDolorPecho",
+          "type": "text",
+          "system": "revision_de_sistemas",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: No"
+        },
+        {
+          "label": "Digestivo: ¿Tiene náuseas, vómitos o cambios en el hábito intestinal?",
+          "name": "digestivoNauseasVomitosCambios",
+          "type": "text",
+          "system": "revision_de_sistemas",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: No"
+        }
+      ]
+    },
+    {
+      "name": "Salud Mental",
+      "description": "Sección para capturar salud mental.",
+      "system": "salud_mental",
+      "fields": [
+        {
+          "label": "¿Cómo se ha sentido emocionalmente últimamente?",
+          "name": "estadoEmocional",
+          "type": "text",
+          "system": "salud_mental",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Algo estresada por el trabajo"
+        },
+        {
+          "label": "¿Ha experimentado estrés, ansiedad o depresión?",
+          "name": "estresAnsiedadDepresion",
+          "type": "text",
+          "system": "salud_mental",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Estrés leve"
+        }
+      ]
+    },
+    {
+      "name": "Síntomas Actuales",
+      "description": "Sección para capturar síntomas actuales.",
+      "system": "sintomas_actuales",
+      "fields": [
+        {
+          "label": "¿Puede describir sus síntomas?",
+          "name": "descripcionSintomas",
+          "type": "text",
+          "system": "sintomas_actuales",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Dolor punzante en la frente y sienes"
+        },
+        {
+          "label": "¿Cuándo comenzaron los síntomas?",
+          "name": "inicioSintomas",
+          "type": "text",
+          "system": "sintomas_actuales",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Hace dos semanas"
+        },
+        {
+          "label": "¿Los síntomas son constantes o intermitentes?",
+          "name": "frecuenciaSintomas",
+          "type": "text",
+          "system": "sintomas_actuales",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Constantes"
+        },
+        {
+          "label": "¿Hay algo que mejore o empeore los síntomas?",
+          "name": "factoresMejoraEmpeoraSintomas",
+          "type": "text",
+          "system": "sintomas_actuales",
+          "placeholder": "Ingrese la respuesta",
+          "hint": "Ejemplo: Mejoran con descanso, empeoran con luz brillante"
+        }
+      ]
+    }
+  ]
+}

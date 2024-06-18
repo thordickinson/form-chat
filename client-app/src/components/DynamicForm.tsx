@@ -1,47 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import {FormGroup} from '../form/api';
 
-const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
-  const [formData, setFormData] = useState({});
-  const [initialFormData, setInitialFormData] = useState({});
+interface DynamicFormProps {
+  formGroup: FormGroup;
+  onSubmit?: (data: any) => void;
+  onChange?: (data: any) => void;
+  formData?: any;
+}
 
-  // Update formData with response data when response changes
-  React.useEffect(() => {
-    if (response) {
-      console.log(response);
-      setFormData(prevFormData => ({
-        ...prevFormData,
-        ...response
-      }));
-      setInitialFormData(response);
-    }
-  }, [response]);
-
+const DynamicForm = ({ formGroup, onSubmit, onChange, formData }: DynamicFormProps) => {
+ 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
-    const updatedValue = type === "boolean" ? checked : value;
+    const updatedValue = type === "checkbox" ? checked : value;
     const updatedFormData = {
       ...formData,
       [name]: updatedValue,
     };
-    setFormData(updatedFormData);
-    onChange(updatedFormData);
+    if(onChange) onChange(updatedFormData);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    if(onSubmit) onSubmit(formData);
   };
 
-  
+  const fields = formGroup.fields
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto p-4 bg-white shadow-md rounded text-gray-800 m-2">
+    <form onSubmit={handleSubmit} className="w-full">
+      <div className='text-left pb-8 pt-4'>{formGroup.description}</div>
       {fields.map((field, index) => (
         <div key={index} className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2 text-left">{field.label}</label>
           {field.type === 'text' && (
             <input
               type="text"
-              placeholder={field.description}
+              placeholder={field.placeholder}
               name={field.name}
               value={formData[field.name] || ''}
               onChange={handleChange}
@@ -52,16 +46,7 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
             <input
               type="number"
               name={field.name}
-              placeholder={field.description}
-              value={formData[field.name] || ''}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-            />
-          )}
-          {field.type === 'textarea' && (
-            <textarea
-              name={field.name}
-              placeholder={field.description}
+              placeholder={field.placeholder}
               value={formData[field.name] || ''}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded"
@@ -79,7 +64,6 @@ const DynamicForm = ({ fields, onSubmit, onChange, response }) => {
           {/* Add more input types as needed */}
         </div>
       ))}
-      <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Submit</button>
     </form>
   );
 };
