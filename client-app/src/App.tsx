@@ -57,7 +57,7 @@ const App = () => {
           formData={currentData}
           handleVoiceInputUpdate={onVoiceTextInput}
         />
-        <div className="w-full p-10">
+        <div className="w-full p-2 md:p-4">
           <DynamicMultistepForm
             formData={formData}
             form={FormularioConsulta}

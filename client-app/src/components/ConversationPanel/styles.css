@@ -20,9 +20,10 @@
 .buttons-panel {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 10px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 100;
 }
 
 .ptt-button-container {
